@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NC Driver Handbook Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="quiz-panel" aria-labelledby="quiz-title">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Study Guide</p>
+            <h1 id="quiz-title">North Carolina Driver Handbook Quiz</h1>
+          </div>
+          <div class="score-card" aria-live="polite">
+            <span id="score">0</span>
+            <span>correct</span>
+          </div>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span id="question-count">Question 1 of 30</span>
+            <span id="section-label">Your License</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div id="progress-bar" class="progress-bar"></div>
+          </div>
+        </div>
+
+        <article class="question-area">
+          <h2 id="question-text"></h2>
+          <div id="choices" class="choices"></div>
+        </article>
+
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+        <div class="actions">
+          <button id="submit-btn" class="primary" disabled>Submit</button>
+          <button id="next-btn" class="secondary" hidden>Next</button>
+          <button id="restart-btn" class="secondary" hidden>Restart</button>
+        </div>
+      </section>
+
+      <section id="results" class="results" hidden>
+        <div class="result-head">
+          <p class="eyebrow">Complete</p>
+          <h2 id="final-score"></h2>
+        </div>
+        <div id="review-list" class="review-list"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
