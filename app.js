@@ -1,4 +1,6 @@
-const questions = [
+const QUESTION_COUNT = 34;
+
+const questionBank = [
   {
     section: "Your License",
     question: "What tests are required for a North Carolina learner permit?",
@@ -236,8 +238,276 @@ const questions = [
     choices: ["$30,000", "$25,000", "$60,000", "$750,000"],
     answer: 0,
     explanation: "The handbook lists $30,000 for injuries to any one person in a crash."
+  },
+  {
+    section: "Your License",
+    question: "How early may a North Carolina driver license be renewed before a customer's birthday?",
+    choices: ["Up to six months before", "Up to one month before", "Only after it expires", "Up to two years before"],
+    answer: 0,
+    explanation: "The handbook says driver licenses may be renewed up to six months before a customer's birthday."
+  },
+  {
+    section: "Your License",
+    question: "How long is a temporary driving certificate valid after applying at a driver license office?",
+    choices: ["60 days", "10 days", "30 days", "One year"],
+    answer: 0,
+    explanation: "Customers receive a temporary driving certificate valid for 60 days while the new license is delivered by mail."
+  },
+  {
+    section: "Alcohol and the Law",
+    question: "What is required before driving privileges can be reinstated after a DWI conviction?",
+    choices: ["A substance abuse assessment", "A vehicle emissions inspection", "A new title application", "A bicycle safety class"],
+    answer: 0,
+    explanation: "The handbook says anyone convicted of DWI must obtain a substance abuse assessment before reinstatement."
+  },
+  {
+    section: "Alcohol and the Law",
+    question: "What is the mandatory license revocation for a first DWI conviction?",
+    choices: ["One year", "30 days", "90 days", "Four years"],
+    answer: 0,
+    explanation: "A first DWI conviction carries a mandatory driver license revocation of one year."
+  },
+  {
+    section: "Driving Privilege",
+    question: "How many points are deducted after satisfactory completion of a driver improvement clinic?",
+    choices: ["Three points", "One point", "Five points", "All points"],
+    answer: 0,
+    explanation: "After satisfactory completion of the clinic, three points are deducted from the driving record."
+  },
+  {
+    section: "Driving Privilege",
+    question: "How many points are assessed for reckless driving?",
+    choices: ["4 points", "1 point", "2 points", "5 points"],
+    answer: 0,
+    explanation: "Reckless driving is listed as a four-point violation."
+  },
+  {
+    section: "Driving Privilege",
+    question: "How long can a second point-system suspension last?",
+    choices: ["6 months", "30 days", "60 days", "12 months"],
+    answer: 0,
+    explanation: "The handbook lists six months for the second suspension under the point system."
+  },
+  {
+    section: "Your Driving",
+    question: "When should you slow down for a curve?",
+    choices: ["Before entering the curve", "Halfway through the curve", "Only after leaving the curve", "Only if another car is behind you"],
+    answer: 0,
+    explanation: "The handbook says to slow down before entering a curve so you do not need to brake while in it."
+  },
+  {
+    section: "Your Driving",
+    question: "For a right turn, where should your vehicle be positioned?",
+    choices: ["Close to the right edge of the road", "In the center of the road", "Close to the left edge of the road", "Across both lanes"],
+    answer: 0,
+    explanation: "For right turns, the handbook says to stay close to the right edge of the road."
+  },
+  {
+    section: "Your Driving",
+    question: "When being passed, what should you avoid doing?",
+    choices: ["Increasing your speed", "Moving right if horned", "Helping the other driver pass", "Staying in your lane"],
+    answer: 0,
+    explanation: "The handbook says never to increase your speed when another vehicle is passing."
+  },
+  {
+    section: "Your Driving",
+    question: "Where should you generally park on a road?",
+    choices: ["On the right side of the road", "Facing traffic on the left side", "On a crosswalk", "Within 15 feet of a fire hydrant"],
+    answer: 0,
+    explanation: "The handbook says to always park on the right side of the road, except on one-way streets."
+  },
+  {
+    section: "Your Driving",
+    question: "At an intersection with no signs or signals, which vehicle has the right of way when two vehicles arrive at the same time?",
+    choices: ["The vehicle to the right", "The vehicle to the left", "The larger vehicle", "The vehicle turning left"],
+    answer: 0,
+    explanation: "When two or more vehicles reach an unsigned intersection at the same time, the vehicle to the right has the right of way."
+  },
+  {
+    section: "Your Driving",
+    question: "What should drivers do when exiting a private driveway?",
+    choices: ["Stop and yield to all vehicles and pedestrians", "Enter traffic immediately", "Yield only to vehicles, not pedestrians", "Use hazard lights and keep moving"],
+    answer: 0,
+    explanation: "The handbook says to stop and yield to all other vehicles and pedestrians when exiting a private driveway."
+  },
+  {
+    section: "School Buses",
+    question: "On a two-lane roadway, what must traffic do when a school bus stops for passengers?",
+    choices: ["Traffic from both directions must stop", "Only traffic behind the bus must stop", "Only oncoming traffic must stop", "No traffic must stop if the road is straight"],
+    answer: 0,
+    explanation: "On a two-lane roadway, all traffic from both directions must stop for a school bus loading or unloading passengers."
+  },
+  {
+    section: "School Buses",
+    question: "On a divided highway of four lanes or more with a median, who must stop for a stopped school bus?",
+    choices: ["Only traffic following the bus", "All traffic in both directions", "Only traffic facing the bus", "No traffic if the median is painted"],
+    answer: 0,
+    explanation: "On a divided highway with four or more lanes and a median, only traffic following the bus must stop."
+  },
+  {
+    section: "Emergency Vehicles",
+    question: "What should you do when an emergency vehicle with flashing lights and siren approaches?",
+    choices: ["Drive to the right edge of the road and stop completely", "Speed up to stay ahead of it", "Stop in the left lane", "Continue normally if you have a green light"],
+    answer: 0,
+    explanation: "Drivers should move to the right-hand curb or edge of the road and stop completely until the emergency vehicle passes."
+  },
+  {
+    section: "Emergency Vehicles",
+    question: "When an emergency vehicle is parked with warning lights on and you are on a highway with at least two lanes in your direction, what should you do?",
+    choices: ["Move into a lane away from the emergency vehicle when safe", "Stop directly beside it", "Drive closer to inspect the scene", "Turn on high beams"],
+    answer: 0,
+    explanation: "North Carolina's move-over rule requires drivers to move into a lane away from the parked emergency vehicle when it is safe."
+  },
+  {
+    section: "Traffic Stops",
+    question: "During a traffic stop, what should you do after stopping the vehicle?",
+    choices: ["Put it in Park, roll down the window, turn off the engine, and remain seated", "Exit immediately with your documents", "Reach under the seat for paperwork", "Keep the radio loud"],
+    answer: 0,
+    explanation: "The handbook says to place the vehicle in Park, roll down the window, turn off the engine, silence devices, and remain seated."
+  },
+  {
+    section: "Traffic Stops",
+    question: "If you disagree with a traffic ticket during a stop, what should you do?",
+    choices: ["Contest it later in court", "Argue until the ticket is withdrawn", "Refuse to sign it", "Leave before the officer finishes"],
+    answer: 0,
+    explanation: "The handbook says not to prolong the contact by arguing; you can explain your point of view in court."
+  },
+  {
+    section: "Hazardous Driving",
+    question: "How much should you reduce speed on wet pavement compared with dry pavement?",
+    choices: ["At least 5 to 10 mph slower", "Exactly 1 mph slower", "Only slow down if it is dark", "Do not slow down"],
+    answer: 0,
+    explanation: "The handbook advises driving at least five to ten miles per hour slower on wet pavement."
+  },
+  {
+    section: "Hazardous Driving",
+    question: "Why should you avoid cruise control when it is raining or after it has been raining?",
+    choices: ["It can delay your response if the vehicle hydroplanes", "It turns headlights off", "It makes windshield wipers illegal", "It prevents braking entirely"],
+    answer: 0,
+    explanation: "If a vehicle hydroplanes, the time needed to turn off cruise control or tap the brake can affect control."
+  },
+  {
+    section: "Hazardous Driving",
+    question: "In fog, which headlights should you use?",
+    choices: ["Low-beam headlights", "High-beam headlights", "No headlights", "Parking lights only"],
+    answer: 0,
+    explanation: "The handbook says to use low-beam headlights when driving in fog."
+  },
+  {
+    section: "Hazardous Driving",
+    question: "On packed snow, how much does the handbook recommend reducing speed?",
+    choices: ["By more than half", "By exactly 5 mph", "Not at all", "Only below 20 mph"],
+    answer: 0,
+    explanation: "The handbook recommends reducing speed by more than half for packed snow and slowing to a crawl on ice."
+  },
+  {
+    section: "Emergencies",
+    question: "If your gas pedal sticks, what should you do?",
+    choices: ["Shift to neutral and apply firm brake pressure without locking the wheels", "Turn sharply off the road immediately", "Pump the accelerator repeatedly at high speed", "Turn off the headlights"],
+    answer: 0,
+    explanation: "The handbook says to try to unstick the pedal, shift to neutral, brake firmly without locking the wheels, and move off the road safely."
+  },
+  {
+    section: "Emergencies",
+    question: "If a tire blowout occurs, what should you do first?",
+    choices: ["Hold the steering wheel tightly and keep the vehicle straight", "Brake hard immediately", "Turn quickly toward the shoulder", "Shift into reverse"],
+    answer: 0,
+    explanation: "For a blowout, hold the steering wheel tightly, keep straight, reduce speed by lifting off the accelerator, and avoid braking until controlled."
+  },
+  {
+    section: "Emergencies",
+    question: "If your vehicle runs off the pavement onto the shoulder, what should you avoid doing immediately?",
+    choices: ["Braking hard or turning sharply back onto the road", "Steering straight ahead", "Lifting your foot from the accelerator", "Checking traffic before returning"],
+    answer: 0,
+    explanation: "The handbook warns not to immediately apply the brakes or try to turn back, because you could skid or lose control."
+  },
+  {
+    section: "Crashes",
+    question: "When must you immediately report a crash to law enforcement?",
+    choices: ["When anyone is killed or injured, or damage appears to be $1,000 or more", "Only when both drivers agree", "Only if a vehicle is towed", "Only on interstate highways"],
+    answer: 0,
+    explanation: "A crash must be reported when someone is killed or injured or the total damage appears to be $1,000 or more."
+  },
+  {
+    section: "Signals and Signs",
+    question: "What does a flashing red traffic signal mean?",
+    choices: ["The same as a stop sign", "Proceed without stopping", "Speed up through the intersection", "Yield only to pedestrians"],
+    answer: 0,
+    explanation: "A flashing red signal has the same meaning as a stop sign."
+  },
+  {
+    section: "Signals and Signs",
+    question: "What does a flashing yellow traffic signal mean?",
+    choices: ["Slow down and proceed with caution", "Come to a full stop every time", "The road is closed", "Only buses may proceed"],
+    answer: 0,
+    explanation: "A flashing yellow signal has the same meaning as a warning sign: slow down and proceed with caution."
+  },
+  {
+    section: "Signals and Signs",
+    question: "What does a flashing yellow arrow mean?",
+    choices: ["The turn is allowed, but you must yield to oncoming traffic and pedestrians", "No turns are allowed", "The turn is protected", "You must stop until a green circle appears"],
+    answer: 0,
+    explanation: "With a flashing yellow arrow, the indicated turn is permitted only after yielding to oncoming traffic and pedestrians."
+  },
+  {
+    section: "Signals and Signs",
+    question: "What does a pentagon-shaped sign warn of?",
+    choices: ["A school zone or school crossing", "A railroad crossing", "A no-passing zone", "A hospital"],
+    answer: 0,
+    explanation: "The five-sided pentagon sign warns of a school zone or school crossing."
+  },
+  {
+    section: "Signals and Signs",
+    question: "What do white pavement lines separate?",
+    choices: ["Travel lanes moving in the same direction", "Travel lanes moving in opposite directions", "School zones from sidewalks", "Railroad tracks from roads"],
+    answer: 0,
+    explanation: "White lines separate travel lanes moving in the same direction."
+  },
+  {
+    section: "Sharing the Road",
+    question: "What is the safest way to pass a bicyclist?",
+    choices: ["Change lanes when there is abundant clearance and no oncoming traffic", "Squeeze by in the same lane", "Use the shoulder at full speed", "Pass only at intersections"],
+    answer: 0,
+    explanation: "The handbook says the safest way to pass a bicyclist is to change lanes when it is lawful and safe."
+  },
+  {
+    section: "Sharing the Road",
+    question: "What should drivers remember about large trucks traveling downhill?",
+    choices: ["Truck brakes create heat and trucks require additional stopping distance", "They stop faster than cars", "They never need extra turning room", "They must use bicycle lanes"],
+    answer: 0,
+    explanation: "The handbook notes that truck brakes create heat downhill and large trucks need additional stopping distance."
+  },
+  {
+    section: "Vehicle Responsibilities",
+    question: "Within how many days must you notify DMV after changing your name?",
+    choices: ["60 days", "10 days", "30 days", "One year"],
+    answer: 0,
+    explanation: "The handbook says if you change your name, you must notify DMV within 60 days."
+  },
+  {
+    section: "Vehicle Responsibilities",
+    question: "Within how many days of moving within North Carolina must a license or ID holder update their physical address?",
+    choices: ["60 days", "15 days", "6 months", "One year"],
+    answer: 0,
+    explanation: "The handbook says license or ID holders must update their physical address within 60 days of moving within North Carolina."
+  },
+  {
+    section: "Vehicle Responsibilities",
+    question: "How soon before registration expiration can a vehicle inspection be performed?",
+    choices: ["Up to 90 days before", "Only the day before", "Up to one year before", "Only after expiration"],
+    answer: 0,
+    explanation: "Vehicle inspections may be performed up to 90 days prior to the registration expiration date."
+  },
+  {
+    section: "Vehicle Responsibilities",
+    question: "What is the minimum liability insurance required for property damage in a crash?",
+    choices: ["$25,000", "$30,000", "$60,000", "$750,000"],
+    answer: 0,
+    explanation: "The handbook lists $25,000 as the minimum required coverage for property damage in a crash."
   }
 ];
+
+let questions = buildQuestionSet();
 
 const state = {
   current: 0,
@@ -261,6 +531,17 @@ const restartBtn = document.querySelector("#restart-btn");
 const results = document.querySelector("#results");
 const finalScore = document.querySelector("#final-score");
 const reviewList = document.querySelector("#review-list");
+
+function buildQuestionSet() {
+  const shuffled = [...questionBank];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+
+  return shuffled.slice(0, Math.min(QUESTION_COUNT, shuffled.length));
+}
 
 function shuffledChoices(item) {
   const mixed = item.choices.map((choice, index) => ({
@@ -393,6 +674,7 @@ function showResults() {
 }
 
 function restartQuiz() {
+  questions = buildQuestionSet();
   state.current = 0;
   state.selected = null;
   state.correct = 0;
