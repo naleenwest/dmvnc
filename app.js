@@ -4,8 +4,8 @@ const SEEN_QUESTIONS_KEY = "nc-dmv-seen-questions";
 const questionBank = [
   {
     section: "Your License",
-    question: "What tests are required for a North Carolina learner permit?",
-    choices: ["Vision, traffic signs, and knowledge of motor vehicle laws", "Only a road skills test", "Vehicle inspection and insurance tests", "A written test only"],
+    question: "Which group of tests is required for a North Carolina learner permit?",
+    choices: ["Vision, traffic signs, and motor vehicle laws", "Vision, parking skills, and vehicle equipment", "Road skills, vehicle inspection, and signs", "Insurance rules, road skills, and parking"],
     answer: 0,
     explanation: "The handbook says learner permit testing includes vision, traffic signs, and knowledge of motor vehicle laws."
   },
@@ -116,15 +116,15 @@ const questionBank = [
   },
   {
     section: "Your Driving",
-    question: "When changing lanes, what should you do after checking mirrors?",
-    choices: ["Check over your shoulder to clear the blind spot", "Speed up immediately", "Tap the brakes twice", "Move without signaling"],
+    question: "After checking mirrors before a lane change, what is the next safety check?",
+    choices: ["Look over your shoulder to check the blind spot", "Tap the brakes to warn drivers beside you", "Move halfway over and then activate the signal", "Sound the horn before crossing the lane line"],
     answer: 0,
     explanation: "The handbook says to check mirrors, check over your shoulder, signal, and then change lanes."
   },
   {
     section: "Your Driving",
-    question: "Where is passing always unsafe and usually illegal?",
-    choices: ["On a curve or hill where you cannot see at least 500 feet ahead", "On a one-way street with multiple lanes", "When a vehicle is in a left-turn lane", "On highways with two lanes in each direction"],
+    question: "Which location is unsafe and usually illegal for passing?",
+    choices: ["A hill or curve where you cannot see 500 feet ahead", "A one-way street with two marked lanes each way", "A lane beside a vehicle waiting to turn left", "A roadway with two lanes in your direction"],
     answer: 0,
     explanation: "The handbook lists curves or hills with less than 500 feet of visibility as places where passing is unsafe and usually illegal."
   },
@@ -144,22 +144,22 @@ const questionBank = [
   },
   {
     section: "Railroad Crossings",
-    question: "When stopping at a railroad crossing because of a train warning, where should you stop?",
-    choices: ["Within 50 feet but not less than 15 feet from the nearest rail", "Exactly 100 feet from the crossing", "On the tracks until the gate rises", "At least 500 feet away"],
+    question: "A railroad warning activates. Where should the driver stop?",
+    choices: ["Within 50 feet but at least 15 feet from the nearest rail", "Within 100 feet but at least 50 feet from the nearest rail", "Beside the crossbuck sign even if that is on the tracks", "At the stop line only when a flagger is also present"],
     answer: 0,
     explanation: "North Carolina law requires stopping within 50 feet, but not less than 15 feet, from the nearest rail."
   },
   {
     section: "Railroad Crossings",
-    question: "What should you do if your vehicle stalls on or near railroad tracks?",
-    choices: ["Get out immediately and move away from the tracks", "Stay inside and call for help", "Try to push the vehicle alone", "Wait for the crossing gate to rise"],
+    question: "Your vehicle stalls on or near railroad tracks. What should you do?",
+    choices: ["Get out immediately and move away from the tracks", "Stay in the vehicle and call the railroad company", "Try to restart until the warning signals activate", "Push the vehicle only if the gate is still raised"],
     answer: 0,
     explanation: "The handbook says to get out immediately and move away from the vehicle and tracks."
   },
   {
     section: "Hazardous Driving",
-    question: "When are headlights required in North Carolina?",
-    choices: ["From sunset to sunrise and when visibility is 400 feet or less", "Only after midnight", "Only in rural areas", "Only when driving on interstates"],
+    question: "When does North Carolina require headlights to be used?",
+    choices: ["From sunset to sunrise and when visibility is 400 feet or less", "From dusk to dawn and when visibility is 1,000 feet or less", "Only after midnight and during active rainfall or snowfall", "Only outside city limits and on highways without streetlights"],
     answer: 0,
     explanation: "The handbook says headlights are required from sunset to sunrise and when visibility is 400 feet or less."
   },
@@ -172,8 +172,8 @@ const questionBank = [
   },
   {
     section: "Hazardous Driving",
-    question: "What should you do if your vehicle begins to hydroplane?",
-    choices: ["Take your foot off the gas, keep the wheel straight, and avoid braking", "Brake hard immediately", "Turn sharply toward the shoulder", "Use cruise control to stabilize speed"],
+    question: "If your vehicle starts to hydroplane, what is the best response?",
+    choices: ["Ease off the gas, keep the wheel straight, and avoid braking", "Brake firmly, steer toward the shoulder, and downshift", "Use cruise control to hold speed until traction returns", "Turn quickly left and right to cut through the water"],
     answer: 0,
     explanation: "The handbook says to take your foot off the gas, resist braking, keep the wheel straight, and let momentum decrease."
   },
@@ -186,15 +186,15 @@ const questionBank = [
   },
   {
     section: "Signals and Signs",
-    question: "What does a circular yellow signal mean?",
-    choices: ["Caution; stop unless you are too close to stop safely", "Speed up to beat the red light", "Proceed without yielding", "Turn only if a green arrow appears"],
+    question: "A circular yellow signal appears as you approach. What does it mean?",
+    choices: ["Stop unless you are too close to stop safely", "Turn only after yielding to pedestrians first", "Proceed because oncoming traffic has stopped", "Speed up only if the intersection is clear"],
     answer: 0,
     explanation: "A circular yellow signal means caution and the signal is about to turn red."
   },
   {
     section: "Signals and Signs",
-    question: "What should you do at a malfunctioning traffic light?",
-    choices: ["Treat the intersection as controlled by stop signs on all approaches", "Drive through without stopping", "Wait until the light turns green", "Only yield if traffic is heavy"],
+    question: "How should drivers handle an intersection when the traffic light is malfunctioning?",
+    choices: ["Treat all approaches as controlled by stop signs", "Yield only to traffic already on the main road", "Proceed cautiously if your lane had the green last", "Wait until another driver enters, then follow them"],
     answer: 0,
     explanation: "The handbook says to proceed as though the intersection is controlled by a stop sign on all approaches."
   },
@@ -214,8 +214,8 @@ const questionBank = [
   },
   {
     section: "Sharing the Road",
-    question: "How should bicyclists ride according to the handbook?",
-    choices: ["With the flow of traffic on the right side of the road", "Facing traffic on the left side", "Only on sidewalks", "Only in marked school zones"],
+    question: "Which bicyclist movement follows the handbook?",
+    choices: ["Riding on the right side with the flow of traffic", "Riding on the left side facing oncoming traffic", "Using sidewalks whenever the road has no bike lane", "Riding only in marked zones near schools or parks"],
     answer: 0,
     explanation: "Bicyclists should ride right, with traffic, not facing traffic."
   },
@@ -228,8 +228,8 @@ const questionBank = [
   },
   {
     section: "Sharing the Road",
-    question: "Which children must wear an approved bicycle helmet?",
-    choices: ["All bicycle riders and passengers under age 16", "Only riders under age 8", "Only passengers under age 5", "All riders of any age"],
+    question: "Who must wear an approved helmet when riding a bicycle?",
+    choices: ["All riders and passengers under age 16", "Only riders under age 8 on public roads", "Only passengers under age 5 in carriers", "All riders of any age after sunset"],
     answer: 0,
     explanation: "The handbook says all bicycle riders and passengers under age 16 must wear an approved helmet."
   },
@@ -326,8 +326,8 @@ const questionBank = [
   },
   {
     section: "Your Driving",
-    question: "What should drivers do when exiting a private driveway?",
-    choices: ["Stop and yield to all vehicles and pedestrians", "Enter traffic immediately", "Yield only to vehicles, not pedestrians", "Use hazard lights and keep moving"],
+    question: "When leaving a private driveway, what is required before entering the road?",
+    choices: ["Stop and yield to vehicles and pedestrians", "Yield only to vehicles already in your lane", "Signal, accelerate, and merge without stopping", "Use hazard lights until fully in the roadway"],
     answer: 0,
     explanation: "The handbook says to stop and yield to all other vehicles and pedestrians when exiting a private driveway."
   },
@@ -347,22 +347,22 @@ const questionBank = [
   },
   {
     section: "Emergency Vehicles",
-    question: "What should you do when an emergency vehicle with flashing lights and siren approaches?",
-    choices: ["Drive to the right edge of the road and stop completely", "Speed up to stay ahead of it", "Stop in the left lane", "Continue normally if you have a green light"],
+    question: "An emergency vehicle approaches with lights and siren. What should you do?",
+    choices: ["Move to the right edge of the road and stop completely", "Keep moving at the limit until the vehicle changes lanes", "Stop in your current lane and turn on high beams", "Move left if the emergency vehicle is behind you"],
     answer: 0,
     explanation: "Drivers should move to the right-hand curb or edge of the road and stop completely until the emergency vehicle passes."
   },
   {
     section: "Emergency Vehicles",
-    question: "When an emergency vehicle is parked with warning lights on and you are on a highway with at least two lanes in your direction, what should you do?",
-    choices: ["Move into a lane away from the emergency vehicle when safe", "Stop directly beside it", "Drive closer to inspect the scene", "Turn on high beams"],
+    question: "On a multi-lane road, what should you do for a stopped emergency vehicle with lights activated?",
+    choices: ["Move to a lane away from it and continue safely past", "Stop in the nearest lane until the lights are turned off", "Keep your lane but drive closer to the center line", "Use high beams and pass only after sounding the horn"],
     answer: 0,
     explanation: "North Carolina's move-over rule requires drivers to move into a lane away from the parked emergency vehicle when it is safe."
   },
   {
     section: "Traffic Stops",
-    question: "During a traffic stop, what should you do after stopping the vehicle?",
-    choices: ["Put it in Park, roll down the window, turn off the engine, and remain seated", "Exit immediately with your documents", "Reach under the seat for paperwork", "Keep the radio loud"],
+    question: "After safely stopping for law enforcement, what should the driver do first?",
+    choices: ["Park, lower the window, turn off the engine, and stay seated", "Exit with license and registration held in both hands", "Open compartments and gather documents before asked", "Keep the engine running and wait with doors unlocked"],
     answer: 0,
     explanation: "The handbook says to place the vehicle in Park, roll down the window, turn off the engine, silence devices, and remain seated."
   },
@@ -382,8 +382,8 @@ const questionBank = [
   },
   {
     section: "Hazardous Driving",
-    question: "Why should you avoid cruise control when it is raining or after it has been raining?",
-    choices: ["It can delay your response if the vehicle hydroplanes", "It turns headlights off", "It makes windshield wipers illegal", "It prevents braking entirely"],
+    question: "Why is cruise control risky during or soon after rain?",
+    choices: ["It can delay your response if hydroplaning begins", "It prevents headlights from turning on with wipers", "It makes the vehicle ignore anti-lock brakes", "It lowers tire pressure on wet pavement"],
     answer: 0,
     explanation: "If a vehicle hydroplanes, the time needed to turn off cruise control or tap the brake can affect control."
   },
@@ -403,29 +403,29 @@ const questionBank = [
   },
   {
     section: "Emergencies",
-    question: "If your gas pedal sticks, what should you do?",
-    choices: ["Shift to neutral and apply firm brake pressure without locking the wheels", "Turn sharply off the road immediately", "Pump the accelerator repeatedly at high speed", "Turn off the headlights"],
+    question: "Your gas pedal sticks while driving. Which response matches the handbook?",
+    choices: ["Shift to neutral and brake firmly without locking wheels", "Turn sharply off the roadway before touching the brakes", "Pump the accelerator hard until the linkage releases", "Set the parking brake first and turn off all lights"],
     answer: 0,
     explanation: "The handbook says to try to unstick the pedal, shift to neutral, brake firmly without locking the wheels, and move off the road safely."
   },
   {
     section: "Emergencies",
-    question: "If a tire blowout occurs, what should you do first?",
-    choices: ["Hold the steering wheel tightly and keep the vehicle straight", "Brake hard immediately", "Turn quickly toward the shoulder", "Shift into reverse"],
+    question: "A tire blows out and the vehicle starts to swerve. What should you do first?",
+    choices: ["Grip the steering wheel tightly and keep the vehicle straight", "Brake hard immediately and steer toward the nearest shoulder", "Shift into neutral and release the steering wheel briefly", "Turn sharply away from traffic and set the parking brake"],
     answer: 0,
     explanation: "For a blowout, hold the steering wheel tightly, keep straight, reduce speed by lifting off the accelerator, and avoid braking until controlled."
   },
   {
     section: "Emergencies",
-    question: "If your vehicle runs off the pavement onto the shoulder, what should you avoid doing immediately?",
-    choices: ["Braking hard or turning sharply back onto the road", "Steering straight ahead", "Lifting your foot from the accelerator", "Checking traffic before returning"],
+    question: "Your vehicle drops onto the shoulder. What should you avoid doing immediately?",
+    choices: ["Braking hard or jerking sharply back to the road", "Easing off the accelerator while steering straight", "Letting the engine slow the vehicle gradually", "Checking traffic before returning to the lane"],
     answer: 0,
     explanation: "The handbook warns not to immediately apply the brakes or try to turn back, because you could skid or lose control."
   },
   {
     section: "Crashes",
-    question: "When must you immediately report a crash to law enforcement?",
-    choices: ["When anyone is killed or injured, or damage appears to be $1,000 or more", "Only when both drivers agree", "Only if a vehicle is towed", "Only on interstate highways"],
+    question: "Which crash must be reported immediately to law enforcement?",
+    choices: ["One with injury, death, or apparent damage of $1,000 or more", "One with any tire damage, even if no other property is harmed", "One on an interstate shoulder, regardless of damage amount", "One where both drivers agree to exchange information only"],
     answer: 0,
     explanation: "A crash must be reported when someone is killed or injured or the total damage appears to be $1,000 or more."
   },
@@ -445,15 +445,15 @@ const questionBank = [
   },
   {
     section: "Signals and Signs",
-    question: "What does a flashing yellow arrow mean?",
-    choices: ["The turn is allowed, but you must yield to oncoming traffic and pedestrians", "No turns are allowed", "The turn is protected", "You must stop until a green circle appears"],
+    question: "At a flashing yellow arrow, how should a driver make the indicated turn?",
+    choices: ["Turn after yielding to oncoming traffic and pedestrians", "Turn only after stopping until the signal changes green", "Turn without yielding because the movement is protected", "Do not turn until a circular green signal is displayed"],
     answer: 0,
     explanation: "With a flashing yellow arrow, the indicated turn is permitted only after yielding to oncoming traffic and pedestrians."
   },
   {
     section: "Signals and Signs",
     question: "What does a pentagon-shaped sign warn of?",
-    choices: ["A school zone or school crossing", "A railroad crossing", "A no-passing zone", "A hospital"],
+    choices: ["A school zone or crossing area", "A railroad crossing ahead", "A no-passing zone begins", "A nearby hospital entrance"],
     answer: 0,
     explanation: "The five-sided pentagon sign warns of a school zone or school crossing."
   },
@@ -466,15 +466,15 @@ const questionBank = [
   },
   {
     section: "Sharing the Road",
-    question: "What is the safest way to pass a bicyclist?",
-    choices: ["Change lanes when there is abundant clearance and no oncoming traffic", "Squeeze by in the same lane", "Use the shoulder at full speed", "Pass only at intersections"],
+    question: "How should a driver pass a bicyclist when passing is lawful and safe?",
+    choices: ["Change lanes with abundant clearance and no oncoming traffic", "Stay in the lane and squeeze by slowly near the center line", "Use the shoulder briefly to create extra passing distance", "Pass only inside intersections where lanes are wider"],
     answer: 0,
     explanation: "The handbook says the safest way to pass a bicyclist is to change lanes when it is lawful and safe."
   },
   {
     section: "Sharing the Road",
-    question: "What should drivers remember about large trucks traveling downhill?",
-    choices: ["Truck brakes create heat and trucks require additional stopping distance", "They stop faster than cars", "They never need extra turning room", "They must use bicycle lanes"],
+    question: "Why should drivers give large trucks extra space on downhill grades?",
+    choices: ["Truck brakes heat up and stopping distance increases", "Trucks can always stop faster because they sit higher", "Truck rear wheels follow exactly behind front wheels", "Trucks must move onto the shoulder before braking"],
     answer: 0,
     explanation: "The handbook notes that truck brakes create heat downhill and large trucks need additional stopping distance."
   },
@@ -511,8 +511,8 @@ const questionBank = [
 const freshQuestionSet = [
   {
     section: "Your License",
-    question: "What does a learner permit authorize the permit holder to do?",
-    choices: ["Drive a specified type or class of motor vehicle while in possession of the permit", "Drive any commercial vehicle without supervision", "Skip the traffic signs test", "Register a vehicle without insurance"],
+    question: "What does a North Carolina learner permit allow its holder to do?",
+    choices: ["Drive the specified class while carrying the permit", "Drive any passenger vehicle without supervision", "Skip the road signs and knowledge requirements", "Register a vehicle before showing liability coverage"],
     answer: 0,
     explanation: "A learner permit authorizes the holder to drive the specified class or type of vehicle while carrying the permit."
   },
@@ -546,15 +546,15 @@ const freshQuestionSet = [
   },
   {
     section: "Alcohol and the Law",
-    question: "What can happen if you refuse a required chemical test after being charged with DWI?",
-    choices: ["Immediate revocation for at least 30 days and an additional minimum 12-month DMV revocation", "Only a warning from the officer", "A required vehicle inspection", "One driver license point"],
+    question: "After a DWI charge, what is the license consequence for refusing a required chemical test?",
+    choices: ["A 30-day immediate revocation plus a DMV revocation", "A court warning plus two driver license points", "A vehicle inspection hold plus a registration fee", "A short permit restriction plus a road skills retest"],
     answer: 0,
     explanation: "Refusing a required breath or blood test results in immediate revocation for at least 30 days plus an additional minimum 12-month DMV revocation."
   },
   {
     section: "Alcohol and the Law",
-    question: "How can driving while impaired be proven?",
-    choices: ["By showing appreciable impairment or a BAC of 0.08 or more", "Only by proving a crash occurred", "Only by finding an open container", "Only by driver admission"],
+    question: "Which evidence can prove driving while impaired under the handbook?",
+    choices: ["Appreciable impairment or a qualifying BAC level", "A crash report plus any traffic citation", "An open container found anywhere in the vehicle", "A driver statement that alcohol was purchased"],
     answer: 0,
     explanation: "DWI can be proven by appreciable physical or mental impairment or by a qualifying BAC level."
   },
@@ -588,15 +588,15 @@ const freshQuestionSet = [
   },
   {
     section: "Driving Privilege",
-    question: "What may happen after two convictions of speeding over 55 mph within 12 months?",
-    choices: ["The DMV can suspend your license", "Your vehicle registration automatically renews", "Your points are canceled", "You are exempt from insurance requirements"],
+    question: "What may the DMV do after two speeding-over-55 convictions within 12 months?",
+    choices: ["Suspend the driver license", "Cancel all previous points", "Renew the vehicle registration", "Require only a vision exam"],
     answer: 0,
     explanation: "The DMV can suspend a license for two convictions of speeding over 55 mph within 12 months."
   },
   {
     section: "Driver Safety",
-    question: "What is one warning sign of drowsy driving?",
-    choices: ["You cannot remember the last few miles driven", "Your headlights are too bright", "Your fuel tank is full", "Your turn signal clicks loudly"],
+    question: "Which sign may indicate that a driver is becoming drowsy?",
+    choices: ["Not remembering the last few miles driven", "Hearing the turn signal click normally", "Having a full tank before a long trip", "Using low beams on a rural highway"],
     answer: 0,
     explanation: "The handbook lists not remembering the last few miles driven as a warning sign of drowsy driving."
   },
@@ -637,43 +637,43 @@ const freshQuestionSet = [
   },
   {
     section: "Pedestrians",
-    question: "What should drivers do if a pedestrian remains in the street when a signal changes to yellow or red?",
-    choices: ["Allow the pedestrian to complete the crossing safely", "Honk and drive around them", "Proceed if the light is green for turning traffic", "Stop only if the pedestrian is in a marked crosswalk"],
+    question: "A signal changes while a pedestrian is still in the street. What must drivers do?",
+    choices: ["Allow the pedestrian to finish crossing safely", "Proceed if turning traffic still has a green arrow", "Honk once and pass behind the pedestrian", "Stop only if the pedestrian is in a marked crosswalk"],
     answer: 0,
     explanation: "Drivers must allow pedestrians already in the street to finish crossing safely."
   },
   {
     section: "Pedestrians",
-    question: "What special signal may identify a blind pedestrian at an intersection without traffic signals?",
-    choices: ["A white cane, a white cane with a red tip, or a guide dog", "A yellow flag only", "A blue reflective marker", "A raised bicycle helmet"],
+    question: "At an unsignalized intersection, how may a blind pedestrian be identified?",
+    choices: ["By a white cane, red-tipped white cane, or guide dog", "By a yellow hand flag, reflective vest, or whistle", "By a blue marker, raised hand, or marked crossing card", "By any cane, bicycle helmet, or flashing warning light"],
     answer: 0,
     explanation: "The law gives special consideration to blind pedestrians using a white cane, a white cane with a red tip, or a guide dog."
   },
   {
     section: "Farm Equipment",
-    question: "When is the only advisable time to pass farm equipment on public roads?",
-    choices: ["When the operator moves off the road at the nearest practical location to let traffic pass", "When the road is marked no passing", "When the equipment signals left", "When approaching the crest of a hill"],
+    question: "When is it advisable to pass slow farm equipment on a public road?",
+    choices: ["When the operator pulls off at a practical place for traffic", "When the equipment is signaling left but slowing down", "When the road is straight but marked as a no-passing zone", "When you can use part of the shoulder to get around it"],
     answer: 0,
     explanation: "The handbook says the only advisable time to pass is when the equipment operator moves off the road to allow traffic to pass."
   },
   {
     section: "Funeral Processions",
-    question: "What lights must vehicles in a funeral procession use?",
-    choices: ["Headlights, and hazard warning signals if equipped", "High beams only", "Parking lights only", "No lights during daytime"],
+    question: "How should vehicles in a funeral procession be lighted?",
+    choices: ["Headlights on, with hazard signals on if equipped", "High beams on, with brake lights tapped often", "Parking lights on, with turn signals disabled", "Interior lights on, with headlights optional"],
     answer: 0,
     explanation: "Every vehicle in a funeral procession must have headlights on and hazard warning signals on if equipped."
   },
   {
     section: "City Driving",
-    question: "What should you do if you plan to turn in heavy city traffic but are not in the proper lane?",
-    choices: ["Continue to the next intersection and turn there", "Turn from the wrong lane", "Stop in the lane until traffic clears", "Back up to the correct lane"],
+    question: "In city traffic, you need to turn but are in the wrong lane. What should you do?",
+    choices: ["Continue to the next intersection and turn there", "Stop until drivers make space for your lane change", "Turn from your lane after signaling for 100 feet", "Back up slowly until you reach the correct lane"],
     answer: 0,
     explanation: "The handbook says to continue to the next intersection and turn there if you are not in the proper lane."
   },
   {
     section: "Communicating",
-    question: "When should you signal your intention?",
-    choices: ["Anytime you plan to slow down, stop, turn, change lanes, or pull from the curb", "Only when another driver honks", "Only at night", "Only on interstate highways"],
+    question: "Which planned movement requires signaling ahead of time?",
+    choices: ["Slowing, stopping, turning, changing lanes, or leaving the curb", "Only turning, changing lanes, or entering a freeway ramp", "Only stopping suddenly, backing, or entering a driveway", "Only turning left, passing, or crossing a railroad track"],
     answer: 0,
     explanation: "The handbook says to signal anytime you plan to slow down, stop, turn, change lanes, or pull away from the curb."
   },
@@ -693,15 +693,15 @@ const freshQuestionSet = [
   },
   {
     section: "Night Driving",
-    question: "What should you do if an approaching driver does not dim their headlights?",
-    choices: ["Blink your high beams once, then keep your lights on low beam if they still do not dim", "Keep your high beams on until they pass", "Turn off your headlights", "Drive in the opposing lane"],
+    question: "At night, an approaching driver leaves bright headlights on. What should you do?",
+    choices: ["Blink high beams once, then keep your lights on low beam", "Keep high beams on until the other vehicle passes you", "Turn headlights off briefly and use the road edge only", "Move toward the center line to increase visibility"],
     answer: 0,
     explanation: "The handbook says you can blink high beams once as a reminder, but keep your lights on low beam if the other driver still does not dim."
   },
   {
     section: "Night Driving",
-    question: "Why should you never drive faster than the distance you can see at night?",
-    choices: ["You must be able to stop within the visible road ahead", "It saves fuel", "It keeps the radio quieter", "It makes high beams unnecessary"],
+    question: "Why should night speed be limited by how far you can see ahead?",
+    choices: ["You need enough visible distance to stop safely", "Headlights use less power at lower speeds", "Low beams are required only below 45 mph", "Nighttime speed limits are always lower"],
     answer: 0,
     explanation: "The handbook warns never to drive at a speed where you cannot stop within the distance visible ahead."
   },
@@ -714,15 +714,15 @@ const freshQuestionSet = [
   },
   {
     section: "Weather",
-    question: "What should you do if you have extreme trouble seeing in fog?",
-    choices: ["Pull far off the roadway, stop, secure the vehicle, and turn on emergency flashers", "Stop in the travel lane", "Use high beams and speed up", "Follow another vehicle closely"],
+    question: "If fog makes visibility extremely poor, what should you do?",
+    choices: ["Pull far off the road, stop, secure the vehicle, and use flashers", "Stop in the lane, keep low beams on, and wait for traffic to pass", "Use high beams, follow tail lights, and continue at low speed", "Drive on the shoulder until the next marked intersection"],
     answer: 0,
     explanation: "The handbook says to pull far off the roadway, stop, secure the vehicle, and turn on emergency flashers."
   },
   {
     section: "Railroad Crossings",
-    question: "What should you do after a train passes at a crossing?",
-    choices: ["Wait until red lights stop flashing before moving ahead", "Move immediately after the last car passes", "Drive around the gate", "Stop on the tracks to check both ways"],
+    question: "After a train clears a crossing, when should you proceed?",
+    choices: ["After the red lights stop flashing and the way is safe", "As soon as the last train car passes your lane", "When the gate on your side begins to rise slightly", "Immediately if the vehicle behind you sounds a horn"],
     answer: 0,
     explanation: "The handbook says to wait until the red lights have stopped flashing before moving ahead."
   },
@@ -735,15 +735,15 @@ const freshQuestionSet = [
   },
   {
     section: "Signals and Signs",
-    question: "What does a yield sign require you to do?",
-    choices: ["Slow down and yield the right of way; stop if needed", "Always speed up", "Stop only if a police officer is present", "Ignore traffic on the intersecting street"],
+    question: "At a yield sign, what determines whether you must stop?",
+    choices: ["Whether stopping is needed to avoid interfering with traffic", "Whether the sign is posted within 50 feet of a crosswalk", "Whether another driver sounds a horn or flashes lights", "Whether your vehicle is turning left instead of right"],
     answer: 0,
     explanation: "A yield sign requires drivers to slow down and yield; stopping depends on intersecting traffic."
   },
   {
     section: "Signals and Signs",
     question: "What does a pennant-shaped yellow warning sign mark?",
-    choices: ["The beginning of a no-passing zone", "A hospital zone", "A parking area", "A railroad emergency phone"],
+    choices: ["The start of a no-passing zone", "The edge of a hospital zone", "The entrance to a parking area", "The location of a rail phone"],
     answer: 0,
     explanation: "A pennant-shaped yellow warning sign emphasizes the beginning of a no-passing zone."
   },
