@@ -1,4 +1,5 @@
 const QUESTION_COUNT = 34;
+const SEEN_QUESTIONS_KEY = "nc-dmv-seen-questions";
 
 const questionBank = [
   {
@@ -507,7 +508,264 @@ const questionBank = [
   }
 ];
 
-let questions = buildQuestionSet();
+const freshQuestionSet = [
+  {
+    section: "Your License",
+    question: "What does a learner permit authorize the permit holder to do?",
+    choices: ["Drive a specified type or class of motor vehicle while in possession of the permit", "Drive any commercial vehicle without supervision", "Skip the traffic signs test", "Register a vehicle without insurance"],
+    answer: 0,
+    explanation: "A learner permit authorizes the holder to drive the specified class or type of vehicle while carrying the permit."
+  },
+  {
+    section: "Your License",
+    question: "What must a learner permit holder have while operating a motor vehicle on highways?",
+    choices: ["A licensed driver seated beside them", "A notarized vehicle title", "A vehicle inspection receipt only", "A motorcycle endorsement"],
+    answer: 0,
+    explanation: "The permit holder must be accompanied by a licensed driver for the vehicle being driven, seated beside the permit holder."
+  },
+  {
+    section: "Your License",
+    question: "What type of license do most drivers need to operate personal automobiles and small trucks?",
+    choices: ["Regular Class C license", "Commercial Class A license", "School bus endorsement", "Motorcycle learner permit"],
+    answer: 0,
+    explanation: "The handbook says most drivers need only a Regular Class C license for ordinary personal vehicles."
+  },
+  {
+    section: "Your License",
+    question: "What does a REAL ID license or identification card display?",
+    choices: ["A gold star", "A red triangle", "A blue crossbuck", "A green arrow"],
+    answer: 0,
+    explanation: "North Carolina REAL ID cards are identified by a gold star."
+  },
+  {
+    section: "Your License",
+    question: "When moving to North Carolina with a commercial driver license from another jurisdiction, how soon must you apply for a North Carolina CDL to maintain it?",
+    choices: ["Within 30 days", "Within 90 days", "Within six months", "Only after it expires"],
+    answer: 0,
+    explanation: "The handbook says CDL holders moving to North Carolina must apply for a North Carolina commercial license within 30 days to maintain it."
+  },
+  {
+    section: "Alcohol and the Law",
+    question: "What can happen if you refuse a required chemical test after being charged with DWI?",
+    choices: ["Immediate revocation for at least 30 days and an additional minimum 12-month DMV revocation", "Only a warning from the officer", "A required vehicle inspection", "One driver license point"],
+    answer: 0,
+    explanation: "Refusing a required breath or blood test results in immediate revocation for at least 30 days plus an additional minimum 12-month DMV revocation."
+  },
+  {
+    section: "Alcohol and the Law",
+    question: "How can driving while impaired be proven?",
+    choices: ["By showing appreciable impairment or a BAC of 0.08 or more", "Only by proving a crash occurred", "Only by finding an open container", "Only by driver admission"],
+    answer: 0,
+    explanation: "DWI can be proven by appreciable physical or mental impairment or by a qualifying BAC level."
+  },
+  {
+    section: "Alcohol and the Law",
+    question: "What BAC can require an ignition interlock device after a DWI conviction?",
+    choices: ["0.15 or more", "0.04 or more", "0.05 or more", "0.07 or more"],
+    answer: 0,
+    explanation: "A DWI conviction with a BAC of 0.15 or more can require an ignition interlock device."
+  },
+  {
+    section: "Driving Privilege",
+    question: "What happens to previous driver license points when driving privilege is reinstated?",
+    choices: ["They are canceled", "They double", "They stay forever", "They become insurance points"],
+    answer: 0,
+    explanation: "When driving privilege is reinstated, previous driver license points are canceled."
+  },
+  {
+    section: "Driving Privilege",
+    question: "How many driver license points are assessed for running through a stop sign?",
+    choices: ["3 points", "1 point", "2 points", "5 points"],
+    answer: 0,
+    explanation: "Running through a stop sign is listed as a three-point violation."
+  },
+  {
+    section: "Driving Privilege",
+    question: "How many driver license points are assessed for following too closely?",
+    choices: ["4 points", "1 point", "2 points", "3 points"],
+    answer: 0,
+    explanation: "Following too closely is listed as a four-point violation."
+  },
+  {
+    section: "Driving Privilege",
+    question: "What may happen after two convictions of speeding over 55 mph within 12 months?",
+    choices: ["The DMV can suspend your license", "Your vehicle registration automatically renews", "Your points are canceled", "You are exempt from insurance requirements"],
+    answer: 0,
+    explanation: "The DMV can suspend a license for two convictions of speeding over 55 mph within 12 months."
+  },
+  {
+    section: "Driver Safety",
+    question: "What is one warning sign of drowsy driving?",
+    choices: ["You cannot remember the last few miles driven", "Your headlights are too bright", "Your fuel tank is full", "Your turn signal clicks loudly"],
+    answer: 0,
+    explanation: "The handbook lists not remembering the last few miles driven as a warning sign of drowsy driving."
+  },
+  {
+    section: "Driver Safety",
+    question: "How often should you stop to stretch and walk briskly on long trips?",
+    choices: ["At least every 2 hours", "Only once per day", "Every 10 minutes", "Only when the gas tank is empty"],
+    answer: 0,
+    explanation: "The handbook recommends stopping at least every two hours during long-distance driving."
+  },
+  {
+    section: "Driver Safety",
+    question: "Which activity is listed as a driving distraction?",
+    choices: ["Using a navigation system", "Checking tire pressure before leaving", "Wearing a seat belt", "Stopping at a red light"],
+    answer: 0,
+    explanation: "Using a navigation system is one of the distractions listed in the handbook."
+  },
+  {
+    section: "Seat Belts and Child Safety",
+    question: "Who must wear seat belts in a motor vehicle manufactured with seat belts?",
+    choices: ["The driver and all passengers", "Only the driver", "Only front-seat passengers", "Only passengers under 16"],
+    answer: 0,
+    explanation: "The handbook says the driver and all passengers must have seat belts properly fastened while the vehicle is moving forward."
+  },
+  {
+    section: "Seat Belts and Child Safety",
+    question: "When must a child under age 8 and less than 80 pounds be secured in a child passenger restraint system?",
+    choices: ["Whenever being transported", "Only on interstates", "Only during bad weather", "Only in commercial vehicles"],
+    answer: 0,
+    explanation: "A child under age 8 and weighing less than 80 pounds must be properly secured in a weight-appropriate child restraint system."
+  },
+  {
+    section: "Seat Belts and Child Safety",
+    question: "Where should children age 12 and under generally ride?",
+    choices: ["Buckled up in a rear seat", "Unbuckled in the front seat", "In the cargo area", "In the driver's lap"],
+    answer: 0,
+    explanation: "The handbook's child safety points say children age 12 and under should ride buckled up in a rear seat."
+  },
+  {
+    section: "Pedestrians",
+    question: "What should drivers do if a pedestrian remains in the street when a signal changes to yellow or red?",
+    choices: ["Allow the pedestrian to complete the crossing safely", "Honk and drive around them", "Proceed if the light is green for turning traffic", "Stop only if the pedestrian is in a marked crosswalk"],
+    answer: 0,
+    explanation: "Drivers must allow pedestrians already in the street to finish crossing safely."
+  },
+  {
+    section: "Pedestrians",
+    question: "What special signal may identify a blind pedestrian at an intersection without traffic signals?",
+    choices: ["A white cane, a white cane with a red tip, or a guide dog", "A yellow flag only", "A blue reflective marker", "A raised bicycle helmet"],
+    answer: 0,
+    explanation: "The law gives special consideration to blind pedestrians using a white cane, a white cane with a red tip, or a guide dog."
+  },
+  {
+    section: "Farm Equipment",
+    question: "When is the only advisable time to pass farm equipment on public roads?",
+    choices: ["When the operator moves off the road at the nearest practical location to let traffic pass", "When the road is marked no passing", "When the equipment signals left", "When approaching the crest of a hill"],
+    answer: 0,
+    explanation: "The handbook says the only advisable time to pass is when the equipment operator moves off the road to allow traffic to pass."
+  },
+  {
+    section: "Funeral Processions",
+    question: "What lights must vehicles in a funeral procession use?",
+    choices: ["Headlights, and hazard warning signals if equipped", "High beams only", "Parking lights only", "No lights during daytime"],
+    answer: 0,
+    explanation: "Every vehicle in a funeral procession must have headlights on and hazard warning signals on if equipped."
+  },
+  {
+    section: "City Driving",
+    question: "What should you do if you plan to turn in heavy city traffic but are not in the proper lane?",
+    choices: ["Continue to the next intersection and turn there", "Turn from the wrong lane", "Stop in the lane until traffic clears", "Back up to the correct lane"],
+    answer: 0,
+    explanation: "The handbook says to continue to the next intersection and turn there if you are not in the proper lane."
+  },
+  {
+    section: "Communicating",
+    question: "When should you signal your intention?",
+    choices: ["Anytime you plan to slow down, stop, turn, change lanes, or pull from the curb", "Only when another driver honks", "Only at night", "Only on interstate highways"],
+    answer: 0,
+    explanation: "The handbook says to signal anytime you plan to slow down, stop, turn, change lanes, or pull away from the curb."
+  },
+  {
+    section: "Communicating",
+    question: "How far in advance should you signal before turning or stopping when the speed limit is under 45 mph?",
+    choices: ["At least the last 100 feet", "At least the last 10 feet", "At least one mile", "Only after entering the turn"],
+    answer: 0,
+    explanation: "Signal at least the last 100 feet before turning or stopping when the speed limit is under 45 mph."
+  },
+  {
+    section: "Communicating",
+    question: "How far in advance should you signal before turning when the speed limit is 45 mph or more?",
+    choices: ["At least the last 200 feet", "At least the last 20 feet", "At least the last 50 feet", "Only while turning"],
+    answer: 0,
+    explanation: "If the speed limit is 45 mph or more, signal at least the last 200 feet before turning."
+  },
+  {
+    section: "Night Driving",
+    question: "What should you do if an approaching driver does not dim their headlights?",
+    choices: ["Blink your high beams once, then keep your lights on low beam if they still do not dim", "Keep your high beams on until they pass", "Turn off your headlights", "Drive in the opposing lane"],
+    answer: 0,
+    explanation: "The handbook says you can blink high beams once as a reminder, but keep your lights on low beam if the other driver still does not dim."
+  },
+  {
+    section: "Night Driving",
+    question: "Why should you never drive faster than the distance you can see at night?",
+    choices: ["You must be able to stop within the visible road ahead", "It saves fuel", "It keeps the radio quieter", "It makes high beams unnecessary"],
+    answer: 0,
+    explanation: "The handbook warns never to drive at a speed where you cannot stop within the distance visible ahead."
+  },
+  {
+    section: "Weather",
+    question: "When is pavement especially dangerous after rain begins?",
+    choices: ["During the first 10 to 15 minutes", "Only after one full day", "Only after the road dries", "Only before rain starts"],
+    answer: 0,
+    explanation: "For the first 10 to 15 minutes, rain mixes with oil, dirt, dust, and rubber to create a slick surface."
+  },
+  {
+    section: "Weather",
+    question: "What should you do if you have extreme trouble seeing in fog?",
+    choices: ["Pull far off the roadway, stop, secure the vehicle, and turn on emergency flashers", "Stop in the travel lane", "Use high beams and speed up", "Follow another vehicle closely"],
+    answer: 0,
+    explanation: "The handbook says to pull far off the roadway, stop, secure the vehicle, and turn on emergency flashers."
+  },
+  {
+    section: "Railroad Crossings",
+    question: "What should you do after a train passes at a crossing?",
+    choices: ["Wait until red lights stop flashing before moving ahead", "Move immediately after the last car passes", "Drive around the gate", "Stop on the tracks to check both ways"],
+    answer: 0,
+    explanation: "The handbook says to wait until the red lights have stopped flashing before moving ahead."
+  },
+  {
+    section: "Signals and Signs",
+    question: "What does a solid red arrow mean?",
+    choices: ["Turning traffic must stop", "Turns are protected", "Turns are allowed after yielding", "The signal is malfunctioning"],
+    answer: 0,
+    explanation: "A red arrow means turning traffic must stop."
+  },
+  {
+    section: "Signals and Signs",
+    question: "What does a yield sign require you to do?",
+    choices: ["Slow down and yield the right of way; stop if needed", "Always speed up", "Stop only if a police officer is present", "Ignore traffic on the intersecting street"],
+    answer: 0,
+    explanation: "A yield sign requires drivers to slow down and yield; stopping depends on intersecting traffic."
+  },
+  {
+    section: "Signals and Signs",
+    question: "What does a pennant-shaped yellow warning sign mark?",
+    choices: ["The beginning of a no-passing zone", "A hospital zone", "A parking area", "A railroad emergency phone"],
+    answer: 0,
+    explanation: "A pennant-shaped yellow warning sign emphasizes the beginning of a no-passing zone."
+  },
+  {
+    section: "Vehicle Responsibilities",
+    question: "Where must the registration card be kept?",
+    choices: ["In the vehicle at all times", "At home only", "With the insurance agent", "At the county courthouse"],
+    answer: 0,
+    explanation: "The registration card must be kept in the vehicle and available to show law enforcement on request."
+  },
+  {
+    section: "Vehicle Responsibilities",
+    question: "What should you do with a valid license plate before canceling liability insurance?",
+    choices: ["Surrender the license plate", "Keep it as a souvenir", "Transfer it to any vehicle", "Throw it away"],
+    answer: 0,
+    explanation: "To avoid a fine or penalty, surrender the vehicle's valid license plate before terminating or canceling liability insurance."
+  }
+];
+
+questionBank.push(...freshQuestionSet);
+
+let questions = buildQuestionSet({ freshOnly: true });
 
 const state = {
   current: 0,
@@ -532,15 +790,49 @@ const results = document.querySelector("#results");
 const finalScore = document.querySelector("#final-score");
 const reviewList = document.querySelector("#review-list");
 
-function buildQuestionSet() {
-  const shuffled = [...questionBank];
+function shuffleItems(items) {
+  const shuffled = [...items];
 
   for (let index = shuffled.length - 1; index > 0; index -= 1) {
     const swapIndex = Math.floor(Math.random() * (index + 1));
     [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
   }
 
-  return shuffled.slice(0, Math.min(QUESTION_COUNT, shuffled.length));
+  return shuffled;
+}
+
+function getSeenQuestions() {
+  try {
+    return JSON.parse(localStorage.getItem(SEEN_QUESTIONS_KEY)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function saveSeenQuestions(items) {
+  const seen = new Set(getSeenQuestions());
+  items.forEach((item) => seen.add(item.question));
+
+  if (seen.size >= questionBank.length) {
+    localStorage.removeItem(SEEN_QUESTIONS_KEY);
+    return;
+  }
+
+  localStorage.setItem(SEEN_QUESTIONS_KEY, JSON.stringify([...seen]));
+}
+
+function buildQuestionSet(options = {}) {
+  const source = options.freshOnly ? freshQuestionSet : questionBank;
+  const seen = new Set(getSeenQuestions());
+  const unseen = source.filter((item) => !seen.has(item.question));
+  const recycled = source.filter((item) => seen.has(item.question));
+  const selected = [
+    ...shuffleItems(unseen),
+    ...shuffleItems(recycled)
+  ].slice(0, Math.min(QUESTION_COUNT, source.length));
+
+  saveSeenQuestions(selected);
+  return selected;
 }
 
 function shuffledChoices(item) {
