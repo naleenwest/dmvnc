@@ -763,7 +763,248 @@ const freshQuestionSet = [
   }
 ];
 
-questionBank.push(...freshQuestionSet);
+const speedGapQuestionSet = [
+  {
+    section: "Speed Limits",
+    question: "Unless otherwise posted, what is the speed limit outside cities and towns?",
+    choices: ["55 mph outside cities and towns", "45 mph outside cities and towns", "60 mph outside cities and towns", "70 mph outside cities and towns"],
+    answer: 0,
+    explanation: "The maximum speed limit table lists 55 mph outside cities and towns unless otherwise posted."
+  },
+  {
+    section: "Speed Limits",
+    question: "Unless otherwise posted, what is the maximum speed limit for interstates?",
+    choices: ["70 mph on interstates", "65 mph on interstates", "55 mph on interstates", "75 mph on interstates"],
+    answer: 0,
+    explanation: "The handbook's maximum speed limit table lists interstates at 70 mph."
+  },
+  {
+    section: "Speed Limits",
+    question: "What is the maximum speed limit for school activity buses?",
+    choices: ["55 mph for school activity buses", "45 mph for school activity buses", "60 mph for school activity buses", "70 mph for school activity buses"],
+    answer: 0,
+    explanation: "The maximum speed limit table lists school activity buses at 55 mph."
+  },
+  {
+    section: "Speed Limits",
+    question: "What is the maximum speed limit for school buses?",
+    choices: ["45 mph for school buses", "35 mph for school buses", "55 mph for school buses", "60 mph for school buses"],
+    answer: 0,
+    explanation: "The handbook lists the maximum speed limit for school buses as 45 mph."
+  },
+  {
+    section: "Speed Limits",
+    question: "Which speed limit pairing matches the handbook's table?",
+    choices: ["Cities 35 mph; outside cities 55 mph", "Cities 45 mph; outside cities 55 mph", "Cities 35 mph; outside cities 65 mph", "Cities 45 mph; outside cities 65 mph"],
+    answer: 0,
+    explanation: "The table lists 35 mph in cities and towns and 55 mph outside cities and towns unless otherwise posted."
+  },
+  {
+    section: "Speed Limits",
+    question: "Which bus speed pairing matches the handbook's maximum-speed table?",
+    choices: ["School bus 45 mph; activity bus 55 mph", "School bus 55 mph; activity bus 45 mph", "School bus 45 mph; activity bus 60 mph", "School bus 55 mph; activity bus 60 mph"],
+    answer: 0,
+    explanation: "The handbook lists school buses at 45 mph and school activity buses at 55 mph."
+  },
+  {
+    section: "Speed Limits",
+    question: "You leave a city and enter an unposted road outside town. Which speed limit applies?",
+    choices: ["55 mph unless a sign says otherwise", "45 mph unless a sign says otherwise", "65 mph unless a sign says otherwise", "70 mph unless a sign says otherwise"],
+    answer: 0,
+    explanation: "Outside cities and towns, the handbook lists 55 mph unless otherwise posted."
+  },
+  {
+    section: "Speed Limits",
+    question: "You enter an unposted city street. Which speed limit applies?",
+    choices: ["35 mph unless a sign says otherwise", "45 mph unless a sign says otherwise", "55 mph unless a sign says otherwise", "25 mph unless a sign says otherwise"],
+    answer: 0,
+    explanation: "In cities and towns, the handbook lists 35 mph unless otherwise posted."
+  },
+  {
+    section: "Speed and Conditions",
+    question: "Which statement best matches the handbook's most important speed rule?",
+    choices: ["Do not exceed the limit or drive too fast for conditions", "Drive at the limit even when conditions become poor", "Drive below the limit whenever another car follows", "Use the limit only on city streets and highways"],
+    answer: 0,
+    explanation: "The handbook says never to drive faster than the posted speed limit or at a speed unreasonable for existing conditions."
+  },
+  {
+    section: "Speed and Conditions",
+    question: "When road conditions change from open country to a school zone, what should a driver do?",
+    choices: ["Watch conditions and adjust speed accordingly", "Keep the same speed unless traffic stops", "Speed up to clear the school zone quickly", "Use interstate speed rules until a red light"],
+    answer: 0,
+    explanation: "The handbook says conditions change as you drive, including school zones, and drivers should adjust speed accordingly."
+  },
+  {
+    section: "Speed and Conditions",
+    question: "Why is driving much slower than traffic sometimes dangerous?",
+    choices: ["Faster traffic may reach you before it can slow", "It always creates fewer crashes than normal speed", "It cancels the need to obey minimum speed signs", "It gives drivers behind you the right to pass anywhere"],
+    answer: 0,
+    explanation: "The handbook warns that very slow driving can be dangerous, especially after hills or curves, because faster vehicles may not slow in time."
+  },
+  {
+    section: "Speed and Conditions",
+    question: "If you must drive slower than the posted speed limit, what should you still observe?",
+    choices: ["The posted minimum speed limit", "The interstate passing speed limit", "The county registration speed limit", "The nearest school bus speed limit"],
+    answer: 0,
+    explanation: "The handbook says if you must drive slower, you should still observe the posted minimum speed limit."
+  },
+  {
+    section: "Speed and Conditions",
+    question: "If traffic is collecting behind your slow-moving vehicle, what is wise to do?",
+    choices: ["Pull over, stop, and allow vehicles to pass", "Brake suddenly to warn drivers behind you", "Drive on the shoulder until traffic clears", "Stay centered and prevent unsafe passing"],
+    answer: 0,
+    explanation: "The handbook says if traffic is collecting behind you, it is wise to pull over, stop, and allow vehicles to pass."
+  },
+  {
+    section: "Speed and Conditions",
+    question: "How does higher speed affect the distance needed for stopping?",
+    choices: ["It increases reaction distance and braking distance", "It reduces reaction distance and braking distance", "It changes braking distance but not reaction distance", "It changes reaction distance but not braking distance"],
+    answer: 0,
+    explanation: "The handbook explains that stopping distances are longer at higher speeds because reaction travel and braking distance both increase."
+  },
+  {
+    section: "Speed and Conditions",
+    question: "What must increase as your vehicle speed increases?",
+    choices: ["How far ahead you can see to stop safely", "How close you follow to reduce lane gaps", "How often you change lanes near traffic", "How quickly you enter a curve before braking"],
+    answer: 0,
+    explanation: "The handbook says the faster you move, the farther ahead you must be able to see to allow enough stopping distance."
+  },
+  {
+    section: "Speed and Conditions",
+    question: "At 55 mph in ideal conditions, about how far does the handbook say a vehicle needs to stop?",
+    choices: ["About 211 feet to stop completely", "About 155 feet to stop completely", "About 255 feet to stop completely", "About 311 feet to stop completely"],
+    answer: 0,
+    explanation: "The handbook states that at 55 mph, a vehicle requires approximately 211 feet to stop completely under ideal conditions."
+  },
+  {
+    section: "Curves and Hills",
+    question: "When approaching a curve, when should you reduce speed?",
+    choices: ["Before entering the curve", "Halfway through the curve", "After leaving the curve", "Only after traffic appears"],
+    answer: 0,
+    explanation: "The handbook says to slow down before entering a curve so you do not need to brake while in the curve."
+  },
+  {
+    section: "Curves and Hills",
+    question: "On a downhill curve, how should your approach compare with a level roadway?",
+    choices: ["Brake earlier and approach more slowly", "Brake later and approach more quickly", "Hold speed and brake only inside the curve", "Accelerate before shifting to a lower gear"],
+    answer: 0,
+    explanation: "For a downhill curve, the handbook says to shift lower before descending, brake earlier, and approach more slowly."
+  },
+  {
+    section: "Roundabouts",
+    question: "What speed range does the handbook associate with modern roundabouts?",
+    choices: ["15 to 20 mph", "25 to 30 mph", "35 to 40 mph", "45 to 50 mph"],
+    answer: 0,
+    explanation: "The handbook says modern roundabouts require vehicles to travel at lower speeds, about 15 to 20 mph."
+  },
+  {
+    section: "Work Zones",
+    question: "Where does a highway work zone begin and end?",
+    choices: ["From the first work-zone sign to the last work-zone sign", "From the first cone to the first traffic signal after it", "From the flagger's paddle to the nearest lane marking", "From the first orange sign to the next county line"],
+    answer: 0,
+    explanation: "The handbook defines a highway work zone as the area between the first sign indicating the beginning and the last sign indicating the end."
+  },
+  {
+    section: "Work Zones",
+    question: "What color combination identifies work-zone warning signs?",
+    choices: ["Black messages on orange signs", "White messages on green signs", "Red messages on white signs", "Yellow messages on blue signs"],
+    answer: 0,
+    explanation: "The handbook says work zones are identified by orange warning signs with black messages."
+  },
+  {
+    section: "Work Zones",
+    question: "When can a work-zone speeding penalty apply in addition to other penalties?",
+    choices: ["When a penalty sign is posted at the beginning", "When any cone is placed beside the shoulder", "When traffic is moving below the speed limit", "When a work zone is outside a city or town"],
+    answer: 0,
+    explanation: "The handbook says a work-zone speeding penalty applies if a sign listing the penalty is posted at the beginning of the work zone."
+  },
+  {
+    section: "Work Zones",
+    question: "What should a driver do after seeing a black-on-orange work-zone sign?",
+    choices: ["Stay alert and prepare for required action", "Maintain speed until a flagger appears", "Move left immediately in every work zone", "Stop at every orange sign before proceeding"],
+    answer: 0,
+    explanation: "The handbook says black-on-orange signs mean you are about to enter a work zone and should stay alert; some signs require action in advance."
+  },
+  {
+    section: "Night Driving",
+    question: "What headlights should you use when driving at night in a city?",
+    choices: ["Low-beam headlights", "High-beam headlights", "Parking lights only", "Hazard lights only"],
+    answer: 0,
+    explanation: "The handbook says to use low-beam headlights when driving at night in a city."
+  },
+  {
+    section: "Night Driving",
+    question: "On an open road at night, when should high beams not be used?",
+    choices: ["When approaching or following another vehicle", "When no other vehicle is close ahead", "When the roadway has no streetlights nearby", "When traffic signs are hard to read clearly"],
+    answer: 0,
+    explanation: "The handbook says to use high beams on the open road unless approaching or following another vehicle."
+  },
+  {
+    section: "Rain and Wet Roads",
+    question: "How much slower should you drive on wet pavement than on dry pavement?",
+    choices: ["At least 5 to 10 mph slower", "At least 10 to 15 mph slower", "At least 15 to 20 mph slower", "At least 20 to 25 mph slower"],
+    answer: 0,
+    explanation: "The handbook says to drive at least five to ten miles per hour slower on wet pavement than on dry pavement."
+  },
+  {
+    section: "Rain and Wet Roads",
+    question: "In rain, how much should normal following distance increase?",
+    choices: ["At least twice the normal distance", "At least three times the normal distance", "At least half the normal distance", "At least four times the normal distance"],
+    answer: 0,
+    explanation: "Because stopping distances increase on slippery pavement, the handbook says to allow at least twice the normal following distance."
+  },
+  {
+    section: "Snow and Ice",
+    question: "On packed snow, how much should you reduce speed?",
+    choices: ["By more than half", "By about one-third", "By exactly 10 mph", "By exactly 20 mph"],
+    answer: 0,
+    explanation: "The handbook recommends reducing speed by more than half for packed snow."
+  },
+  {
+    section: "Snow and Ice",
+    question: "On ice, how does the handbook describe the proper speed?",
+    choices: ["Slow to a crawl", "Hold city speed", "Keep highway speed", "Use posted minimums"],
+    answer: 0,
+    explanation: "The handbook recommends slowing to a crawl on ice."
+  },
+  {
+    section: "Parking",
+    question: "When parking on a highway shoulder, how far away must approaching drivers be able to see the parked vehicle?",
+    choices: ["At least 200 feet from both directions", "At least 100 feet from both directions", "At least 300 feet from both directions", "At least 500 feet from both directions"],
+    answer: 0,
+    explanation: "The handbook says shoulder parking is unlawful unless approaching drivers from both directions can see the vehicle for at least 200 feet."
+  },
+  {
+    section: "Parking",
+    question: "How close may you park to a fire hydrant according to the no-parking list?",
+    choices: ["Not within 15 feet", "Not within 25 feet", "Not within 50 feet", "Not within 100 feet"],
+    answer: 0,
+    explanation: "The handbook says not to park within 15 feet of a fire hydrant or entrance to a fire station."
+  },
+  {
+    section: "Parking",
+    question: "How close may you park to an intersecting street's curb line?",
+    choices: ["Not within 25 feet", "Not within 15 feet", "Not within 35 feet", "Not within 50 feet"],
+    answer: 0,
+    explanation: "The handbook says not to park within 25 feet of the curb line of an intersecting street."
+  },
+  {
+    section: "Passing",
+    question: "When passing another vehicle, how far left must the passing driver be?",
+    choices: ["At least two feet to the left", "At least one foot to the left", "At least three feet to the left", "At least five feet to the left"],
+    answer: 0,
+    explanation: "The handbook says the passing driver must pass at least two feet to the left of the vehicle being passed."
+  },
+  {
+    section: "Passing",
+    question: "On a curve or hill, when is passing unsafe and usually illegal?",
+    choices: ["When you cannot see at least 500 feet ahead", "When you cannot see at least 300 feet ahead", "When you cannot see at least 700 feet ahead", "When you cannot see at least 900 feet ahead"],
+    answer: 0,
+    explanation: "The handbook says passing is unsafe and usually illegal on any curve or hill where the driver cannot see at least 500 feet ahead."
+  }
+];
+
+questionBank.push(...freshQuestionSet, ...speedGapQuestionSet);
 
 let questions = buildQuestionSet({ freshOnly: true });
 
@@ -822,7 +1063,7 @@ function saveSeenQuestions(items) {
 }
 
 function buildQuestionSet(options = {}) {
-  const source = options.freshOnly ? freshQuestionSet : questionBank;
+  const source = options.freshOnly ? [...freshQuestionSet, ...speedGapQuestionSet] : questionBank;
   const seen = new Set(getSeenQuestions());
   const unseen = source.filter((item) => !seen.has(item.question));
   const recycled = source.filter((item) => seen.has(item.question));
